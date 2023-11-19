@@ -1,0 +1,42 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.pyc
+
+# Database files
+*.sqlite3
+
+# Logs and error files
+*.log
+
+# Static and media files
+/static/
+/media/
+
+# Secret settings (e.g., containing sensitive information)
+*.env
+
+# Temporary files and directories
+*.swp
+*.swo
+*.swn
+*.swm
+*.swl
+*.swk
+*.swo
+
+# IDE-specific files and directories
+.idea/
+.vscode/
+
+# Dependency directories (e.g., created by pip or npm)
+node_modules/
+venv/
+env/
+__pyenv__/
+pyvenv.cfg
+
+# Compiled files
+*.pyo
+
+# Mac-specific directories
+.DS_Store

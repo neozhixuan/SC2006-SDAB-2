@@ -1,0 +1,28 @@
+{% if mapped_data %}
+    {% for document, model_instance in mapped_data.items %}
+        <h2>{{ document }}</h2>
+        <ul>
+            {% for field, value in model_instance.__dict__.items %}
+                <li>{{ field }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% else %}
+    <p>No data available</p>
+{% endif %}
+
+
+
+
+{% comment %} {% if data %}
+    {% for document, document_data in data.items %}
+        <h2>{{ document }}</h2>
+        <ul>
+            {% for key, value in document_data.items %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% else %}
+    <p>No data available</p>
+{% endif %} {% endcomment %}

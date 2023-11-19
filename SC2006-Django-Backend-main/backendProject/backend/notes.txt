@@ -1,0 +1,52 @@
+# def map_firestore_data_to_models(data):
+#     models_mapping = {
+#         'Inventory': Inventory,
+#         'Marketplace': Marketplace,
+#         'Prediction': Predictions,
+#         'Suggestions': Suggestions,
+#         'Suppliers': Supplier,
+#     }
+
+#     mapped_data = {}
+
+#     for document, model_class in models_mapping.items():
+#         document_data = data.get(document, {})
+
+# # Iterate through each field in the document
+#         for item_name, item_data in document_data.items():
+#             # Create an instance of the model for each item
+#             model_instance = model_class.objects.create(
+#                 **item_data  # Use all other fields from the Firestore data
+#             )
+
+#             # Save the created instance in the mapped data
+#             mapped_data.setdefault(document, []).append(model_instance)
+
+#     return mapped_data
+
+# def view_firestore_data(request):
+
+
+#     # Specify the documents you want to retrieve under the "Database" collection
+#     documents = ['Inventory', 'Marketplace', 'Prediction', 'Suggestions', 'Suppliers']
+
+#     # Query Firestore for each document
+#     data = {}
+#     for document in documents:
+#         doc_ref = db.collection('Database').document(document)
+#         document_data = doc_ref.get()
+
+#         # Extract the data from the document
+#         data[document] = document_data.to_dict() if document_data.exists else None
+
+#     # Map Firestore data to Django models
+#     mapped_data = map_firestore_data_to_models(data)
+
+#     inventory_instance = Inventory.objects.all()
+#     # Pass the mapped data to the template
+#     context = {
+#         'mapped_data': mapped_data,
+#         'inventory_instance': Inventory.objects.all(),  # Example for accessing Inventory
+#     }
+
+#     return render(request, '../templates/index.html', context)
